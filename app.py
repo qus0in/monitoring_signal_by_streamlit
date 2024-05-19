@@ -33,27 +33,27 @@ def get_bond_col():
     df['Signal'] = get_signal(df)
     st.dataframe(df, use_container_width=True)
 
-cols = st.columns(2)
-with cols[0]:
-    st.header('Bonds')
-    get_bond_col()
+# cols = st.columns(2)
+# with cols[0]:
+st.header('Bonds')
+get_bond_col()
 
-ASSETS2 = ['TQQQ', 'SOXL', 'FNGU', 'TECL', 'TNA', 'FAS', 'LABU', 'BULZ', 'DPST']
+# ASSETS2 = ['TQQQ', 'SOXL', 'FNGU', 'TECL', 'TNA', 'FAS', 'LABU', 'BULZ', 'DPST']
 
-def get_signal2(df):
-    TQQQ = df.loc['TQQQ', 'Score']
-    handler = lambda x: '🤗' if x > TQQQ else '🫠' if x < 0 else '🫥'
-    return df['Score'].apply(handler)
+# def get_signal2(df):
+#     TQQQ = df.loc['TQQQ', 'Score']
+#     handler = lambda x: '🤗' if x > TQQQ else '🫠' if x < 0 else '🫥'
+#     return df['Score'].apply(handler)
 
-def get_lev_col():
-    scores = {ticker: get_total_score(ticker) for ticker in ASSETS2}
-    df = pd.DataFrame(scores.items(), columns=['Asset', 'Score'])
-    df = df.set_index('Asset')
-    df = df.sort_values('Score', ascending=False)
-    df['Signal'] = get_signal2(df)
-    st.dataframe(df, use_container_width=True)
+# def get_lev_col():
+#     scores = {ticker: get_total_score(ticker) for ticker in ASSETS2}
+#     df = pd.DataFrame(scores.items(), columns=['Asset', 'Score'])
+#     df = df.set_index('Asset')
+#     df = df.sort_values('Score', ascending=False)
+#     df['Signal'] = get_signal2(df)
+#     st.dataframe(df, use_container_width=True)
 
 
-with cols[1]:
-    st.header('Leveraged')
-    get_lev_col()
+# with cols[1]:
+#     st.header('Leveraged')
+#     get_lev_col()
