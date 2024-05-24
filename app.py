@@ -6,7 +6,7 @@ st.set_page_config(page_title='Strategy Monitoring', page_icon='📈')
 st.title('Strategy Monitoring')
 
 ASSETS = ['SHY', 'IEF', 'TLT', 'TIP', 'LQD', 'HYG', 'BWX', 'EMB', 'BIL']
-PERIODS = [5, 10, 20, 60, 120]
+PERIODS = [3, 5, 8, 13, 21, 34, 55]
 
 @st.cache_data(ttl='1m')
 def get_data(ticker):
@@ -17,7 +17,7 @@ def get_score(ticker, period):
     return data.iloc[-1] / data.iloc[0] - 1
 
 def get_total_score(ticker):
-    return sum([get_score(ticker, period) for period in PERIODS]) / len(PERIODS) * 100
+    return sum([get_score(ticker, period) for period in PERIODS]) / len(PERIODS) * 252
 
 def get_signal(df):
     BIL = df.loc['BIL', 'Score']
