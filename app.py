@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as pd
 
 st.set_page_config(page_title='Strategy Monitoring', page_icon='📈')
-st.title('Strategy Monitoring')
+st.title('Strategy Monitoring (Novell)')
 
 ASSETS = ['SHY', 'IEF', 'TLT', 'TIP', 'LQD', 'HYG', 'BWX', 'EMB', 'BIL']
 PERIODS = [3, 5, 8, 13, 21, 34, 55]
@@ -31,11 +31,10 @@ def get_bond_col():
     df = df.set_index('Asset')
     df = df.sort_values('Score', ascending=False)
     df['Signal'] = get_signal(df)
-    st.dataframe(df, use_container_width=True)
+    st.dataframe(df)
 
 # cols = st.columns(2)
 # with cols[0]:
-st.header('Bonds')
 get_bond_col()
 
 # ASSETS2 = ['TQQQ', 'SOXL', 'FNGU', 'TECL', 'TNA', 'FAS', 'LABU', 'BULZ', 'DPST']
