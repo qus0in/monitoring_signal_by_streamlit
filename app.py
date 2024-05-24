@@ -6,7 +6,8 @@ st.set_page_config(page_title='Strategy Monitoring (Novell)', page_icon='📈')
 st.title('Strategy Monitoring (Novell)')
 
 ASSETS = ['SHY', 'IEF', 'TLT', 'TIP', 'LQD', 'HYG', 'BWX', 'EMB', 'BIL']
-PERIODS = [3, 5, 8, 13, 21, 34, 55]
+# PERIODS = [3, 5, 8, 13, 21, 34, 55]
+PERIODS = [5, 10, 20, 60, 120]
 
 @st.cache_data(ttl='1m')
 def get_data(ticker):
