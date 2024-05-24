@@ -2,7 +2,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 
-st.set_page_config(page_title='Strategy Monitoring', page_icon='📈')
+st.set_page_config(page_title='Strategy Monitoring (Novell)', page_icon='📈')
 st.title('Strategy Monitoring (Novell)')
 
 ASSETS = ['SHY', 'IEF', 'TLT', 'TIP', 'LQD', 'HYG', 'BWX', 'EMB', 'BIL']
