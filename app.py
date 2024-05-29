@@ -23,7 +23,7 @@ def get_total_score(ticker):
 def get_signal(df):
     BIL = df.loc['BIL', 'Score']
     top3 = df.iloc[2]['Score']
-    handler = lambda x: '🤗' if x > BIL and x >= top3 else '🫠' if x < 0 else '🫥'
+    handler = lambda x: '🤗' if x >= BIL and x >= top3 else '🫠' if x < 0 else '🫥'
     return df['Score'].apply(handler)
 
 def get_bond_col():
